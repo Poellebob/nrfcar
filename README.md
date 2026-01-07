@@ -1,13 +1,13 @@
-# 󱖫 NRF Car Communication Protocol
+# NRF Car Communication Protocol
 
 This document provides a detailed explanation of the wireless communication protocol between the `nrfcontroller` (remote) and the `nrfbot` (car) using nRF24L01 radio modules.
 
-## 󰴈 System Overview
+## System Overview
 
 The system implements a **unidirectional wireless control link**:
 
-- **Controller (TX)** 󰤃 Continuously broadcasts control commands
-- **Car (RX)** 󰤂 Listens and responds to received commands
+- **Controller (TX)** Continuously broadcasts control commands
+- **Car (RX)** Listens and responds to received commands
 
 ### Communication Architecture
 
@@ -31,7 +31,7 @@ This creates a matched TX/RX pair on the same channel.
 
 ---
 
-## 󱤓 Controller (`nrfcontroller/src/main.cpp`)
+## Controller (`nrfcontroller/src/main.cpp`)
 
 The controller reads joystick and button inputs, packages them into a payload, and transmits them wirelessly.
 
@@ -118,7 +118,7 @@ void loop() {
 
 ---
 
-## 󰄀 Car (`nrfbot/src/main.cpp`)
+## Car (`nrfbot/src/main.cpp`)
 
 The car receives control packets and uses them to drive its motors.
 
@@ -214,7 +214,7 @@ The `drive()` function (implemented in `motor.h`) interprets the joystick values
 
 ---
 
-## 󰓾 Data Flow Summary
+## Data Flow Summary
 
 ```
  10ms Cycle:
@@ -240,7 +240,7 @@ The `drive()` function (implemented in `motor.h`) interprets the joystick values
 
 ---
 
-## 󰌘 Key Technical Details
+## Key Technical Details
 
 ### Payload Size
 - **18 bytes total** (9 elements × 2 bytes per `int16_t`)
@@ -256,9 +256,9 @@ The `drive()` function (implemented in `motor.h`) interprets the joystick values
 
 ### Button States (Currently Unused)
 The controller sends button states (`payload[2]` through `payload[8]`), but the car currently **ignores** them. These could be used for:
-- 󰐊 Start button: Enable/disable motors
-- 󰒓 Select button: Switch driving modes
-- 󰁝󰁅󰁍󰁔 D-pad: Control accessories (lights, horn, etc.)
+- Start button: Enable/disable motors
+- Select button: Switch driving modes
+- D-pad: Control accessories (lights, horn, etc.)
 
 ### Future Enhancements
 - 󰋜 Add bidirectional communication (car sends telemetry back)
