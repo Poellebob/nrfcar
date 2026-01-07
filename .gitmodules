@@ -1,0 +1,6 @@
+[submodule "nrfcontroller"]
+	path = nrfcontroller
+	url = https://github.com/Poellebob/nrfcontroller.git
+[submodule "nrfbot"]
+	path = nrfbot
+	url = https://github.com/Poellebob/nrfbot.git
