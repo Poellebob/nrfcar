@@ -91,15 +91,15 @@ The controller sends a **9-element integer array** every 10ms:
 ```cpp
 int16_t payload[9];
 
-payload[0] = analogRead(x_axis);     // 󰮠 Throttle (0-1023)
-payload[1] = analogRead(y_axis);     // 󰓁 Steering (0-1023)
-payload[2] = digitalRead(up_button);     // 󰁝 Button states (0 or 1)
-payload[3] = digitalRead(down_button);   // 󰁅
-payload[4] = digitalRead(left_button);   // 󰁍
-payload[5] = digitalRead(right_button);  // 󰁔
-payload[6] = digitalRead(start_button);  // 󰐊
-payload[7] = digitalRead(select_button); // 󰒓
-payload[8] = digitalRead(analog_button); // 󰳽
+payload[0] = analogRead(x_axis);     // Throttle (0-1023)
+payload[1] = analogRead(y_axis);     // Steering (0-1023)
+payload[2] = digitalRead(up_button);     // A Button states (0 or 1)
+payload[3] = digitalRead(down_button);   // C
+payload[4] = digitalRead(left_button);   // D
+payload[5] = digitalRead(right_button);  // B
+payload[6] = digitalRead(start_button);  // F
+payload[7] = digitalRead(select_button); // E
+payload[8] = digitalRead(analog_button);
 ```
 
 ### Transmission Loop
