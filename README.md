@@ -76,12 +76,13 @@ if (role)
 - `stopListening()` puts the radio in TX mode, continuously ready to transmit
 
 **Debug**
+
 Add
 ```cpp
 printf_begin();
 radio.printPrettyDetails();
 ```
-to the `setup()` to get debug ifo for the nrf.
+to the `setup()` to get debug info for the nrf.
 
 ### Payload Structure
 
