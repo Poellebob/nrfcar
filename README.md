@@ -14,11 +14,11 @@ The system implements a **unidirectional wireless control link**:
 ```
 Controller (nrfcontroller)          Car (nrfbot)
 ┌──────────────────┐              ┌──────────────────┐
-│  radioNumber: 0  │  ───write─→  │  radioNumber: 1  │
+│  radioNumber: 0  │  ───write─>  │  radioNumber: 1  │
 │  Writes to:      │   "1Node"    │  Reads from:     │
 │    "1Node"       │              │    "1Node"       │
 │                  │              │                  │
-│  Reads from:     │  ←───────    │  Writes to:      │
+│  Reads from:     │  <───────    │  Writes to:      │
 │    "2Node"       │   (unused)   │    "2Node"       │
 └──────────────────┘              └──────────────────┘
 ```
@@ -74,6 +74,14 @@ if (role)
 - `openWritingPipe(address[0])` sets up transmission to `"1Node"`
 - `openReadingPipe(1, address[1])` sets up listening on `"2Node"` (not used in current implementation, but available for future bidirectional communication)
 - `stopListening()` puts the radio in TX mode, continuously ready to transmit
+
+**Debug**
+Add
+```cpp
+printf_begin();
+radio.printPrettyDetails();
+```
+to the `setup()` to get debug ifo for the nrf.
 
 ### Payload Structure
 
